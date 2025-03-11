@@ -80,3 +80,20 @@ pairs(sentdol)
 plot(sentdol, col=viridis(100))
 plot(sentdol, col=mako(100))
 plot(sentdol, col=magma(100))
+
+#Layers: 1=blue, 2=green, 3=red, 4=NIR
+
+#Natural colors
+im.plotRGB(sentdol, r=3, g=2, b=1)
+
+#False colors
+im.plotRGB(sentdol, r=4, g=3, b=2)
+
+#Exercise: plot the image using the NIR ontop on the green component of the RGB scheme
+#(tutto quello che è verde è vegetazione ma con riflettanza in infrarosso)
+im.plotRGB(sentdol, r=3, g=4, b=2)
+
+im.plotRGB(sentdol, r=3, g=2, b=4)
+#(mettendo nella componente blu la riflettanza nel NIR evidenzio se ci sono rocce nude)
+
+
