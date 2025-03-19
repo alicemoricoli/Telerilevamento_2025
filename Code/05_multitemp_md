@@ -12,5 +12,5 @@ Then, we might calculate the difference of values of the images
 ``` r
 grdif = gr[[4]] - gr[[1]]
 ```
-Then we might add an image
-
+This will create the following image:
+<img src="../Pics/output.jpeg" width=100% />
