@@ -1,0 +1,31 @@
+# R code for multitemporal analysis
+
+library (terra)
+library (imageRy)
+
+im.list()
+EN_01 = im.import("EN_01.png")
+EN_01 = flip(EN_01)
+plot(EN_01)
+
+EN_13 = im.import("EN_13.png")
+EN_13 = flip(EN_13)
+plot(EN_13)
+
+im.multiframe(1,2)
+plot(EN_01)
+plot(EN_13)
+
+ENdif = EN_01[[1]] - EN_13[[2]]
+plot (ENdif)
+
+library (viridis)
+plot(ENdif, col=inferno(100))
+
+# Greenland Ice melt
+gr = im.import("greenland")
+gr
+grdif = gr[[1]] - gr[[4]]
+plot(grdif)
+
+
