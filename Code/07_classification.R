@@ -60,3 +60,36 @@ p0 + p00 + p1 + p2
 
 p1 / p2
 
+# Solar Orbiter
+
+solar = im.import( "Solar_Orbiter_s_first_views_of_the_Sun_pillars.jpg" )
+
+# Exercise: classify the image in three classes - im.classify()
+solarc = im.classify(solar, num_clusters=3)
+
+# Plot the original image beside the classified one
+
+im.multiframe(1,2)
+plot(solar)
+plot(solarc)
+
+# 3 = low energy
+# 1 = medium 
+# 2 = high
+
+solarcs = subst(solarc, c(3,1,2), c("c1_low", "c2_medium", "c3_high"))
+
+# Calculate the percentages of the Sun energy classes with one line code
+
+percsolar = freq (solarcs)$count *100 / ncell(solarcs)
+#37.33349 41.44658 21.21993
+
+# Create dataframe
+class = c("c1_low", "c2_medium", "c3_high")
+perc =  c(38,41,21)
+tabsol = data.frame(class, perc)
+
+# final ggplot
+
+ggplot(tabsol, aes(x=class, y=perc, fill=class, col=class)) + geom_bar(stat="identity") + 
+coord_flip()
