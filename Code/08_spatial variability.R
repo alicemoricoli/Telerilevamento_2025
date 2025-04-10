@@ -94,3 +94,8 @@ p4 = im.ggplot(sd5a5)
 
 p1+p2+p3+p4
 
+
+# Variance
+# nir
+var3 = focal(nir, w=c(3,3)fun="var")
+plot(var3)
